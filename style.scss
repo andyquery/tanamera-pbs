@@ -1,179 +1,179 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 a:visited {
-    color: #fff;
+  color: #fff;
 }
 body {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-    color: #fff;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: #000;
 }
 .header {
-    position: fixed;
-    width: 100%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+
+  &::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 50;
+    width: 100%;
+    height: 100%;
+    /*background-color: #5e5373;*/
+    z-index: 2;
+  }
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        /*background-color: #5e5373;*/
-        z-index: 2;
+  &__body {
+    height: 80px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo-avatar {
+    flex: 0 0 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+    & img {
+      max-width: 100%;
+      display: block;
     }
+  }
+  &__logo-text {
+    padding-left: 20px;
+  }
 
+  &__burger {
+    display: none;
+  }
+
+  &__menu {
+  }
+  &__menu-list {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    & li {
+      list-style: none;
+    }
+  }
+  &__menu-link {
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 20px;
+  }
+
+  @media (max-width: 767px) {
+    body.lock {
+      overflow: hidden;
+    }
     &__body {
-        height: 80px;
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 20px;
+      height: 50px;
     }
-
-    &__logo {
-        display: flex;
-        align-items: center;
-    }
-
     &__logo-avatar {
-        flex: 0 0 60px;
-        border-radius: 50%;
-        overflow: hidden;
-        position: relative;
-        z-index: 3;
-        & img {
-            max-width: 100%;
-            display: block;
-        }
+      flex: 0 0 40px;
     }
-    &__logo-text {
-        padding-left: 20px;
-    }
-
     &__burger {
-        display: none;
+      display: block;
+      position: relative;
+      width: 30px;
+      height: 20px;
+      z-index: 3;
+      &::before,
+      &::after {
+        content: '';
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s;
+      }
+      &::before {
+        top: 0;
+      }
+      &::after {
+        bottom: 0;
+      }
+      & span {
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        top: 9px;
+        transition: all 0.3s ease 0s;
+      }
+    }
+    &__burger.active::before {
+      transform: rotate(45deg);
+      top: 9px;
+    }
+    &__burger.active::after {
+      transform: rotate(-45deg);
+      bottom: 9px;
+    }
+    &__burger.active span {
+      transform: scale(0);
+    }
+    &__menu {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: -110%;
+      left: 0;
+      padding: 70px 10px 20px 10px;
+      transition: all 0.3s ease 0s;
+      overflow: auto;
     }
 
-    &__menu {
+    &__menu.active {
+      top: 0;
     }
+
     &__menu-list {
-        display: flex;
-        position: relative;
-        z-index: 2;
-        & li {
-            list-style: none;
-        }
+      display: block;
+      margin: 0px 0px 20px 0px;
     }
     &__menu-link {
-        text-decoration: none;
-        text-transform: uppercase;
-        margin-left: 20px;
+      margin-left: 0px;
+      font-style: 24px;
     }
-
-    @media (max-width: 767px) {
-        body.lock {
-            overflow: hidden;
-        }
-        &__body {
-            height: 50px;
-        }
-        &__logo-avatar {
-            flex: 0 0 40px;
-        }
-        &__burger {
-            display: block;
-            position: relative;
-            width: 30px;
-            height: 20px;
-            z-index: 3;
-            &::before,
-            &::after {
-                content: "";
-                background-color: #fff;
-                position: absolute;
-                width: 100%;
-                height: 2px;
-                left: 0;
-                transition: all 0.3s ease 0s;
-            }
-            &::before {
-                top: 0;
-            }
-            &::after {
-                bottom: 0;
-            }
-            & span {
-                background-color: #fff;
-                position: absolute;
-                width: 100%;
-                height: 2px;
-                left: 0;
-                top: 9px;
-                transition: all 0.3s ease 0s;
-            }
-        }
-        &__burger.active::before {
-            transform: rotate(45deg);
-            top: 9px;
-        }
-        &__burger.active::after {
-            transform: rotate(-45deg);
-            bottom: 9px;
-        }
-        &__burger.active span {
-            transform: scale(0);
-        }
-        &__menu {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: -110%;
-            left: 0;
-            padding: 70px 10px 20px 10px;
-            transition: all 0.3s ease 0s;
-            overflow: auto;
-        }
-
-        &__menu.active {
-            top: 0;
-        }
-
-        &__menu-list {
-            display: block;
-            margin: 0px 0px 20px 0px;
-        }
-        &__menu-link {
-            margin-left: 0px;
-            font-style: 24px;
-        }
-    }
+  }
 }
 .main {
 }
 .form-box {
-    display: flex;
-    position: relative;
-    width: 100%;
-    height: 100vh;
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100vh;
 }
 .form-box img {
-    position: absolute;
-    max-width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    object-fit: cover;
+  position: absolute;
+  max-width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
 }
 .box1 {
 }
