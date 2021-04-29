@@ -241,3 +241,9 @@ body {
   -o-object-fit: cover;
   object-fit: cover;
 }
+
+.story__content-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
