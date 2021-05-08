@@ -1,9 +1,25 @@
-@import '_null';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #f2f2f2;
+}
+a:visited {
+  color: #f2f2f2;
+}
 body {
   font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 24px;
   color: #000;
+  @media (max-width: 767px) {
+    &.lock {
+      overflow: hidden;
+    }
+  }
 }
 .header {
   position: fixed;
@@ -19,27 +35,23 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /*background-color: #5e5373;*/
+    background: linear-gradient(90deg, #a9a399 25%, #6d501a 50%, #b1b7b9);
     z-index: 2;
   }
 
   &__body {
+    display: flex;
     height: 80px;
     position: relative;
-    display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 20px;
   }
 
   &__logo {
-    display: flex;
-    align-items: center;
   }
 
   &__logo-avatar {
-    flex: 0 0 60px;
-    //border-radius: 50%;
+    margin: 0 20px;
     overflow: hidden;
     position: relative;
     z-index: 3;
@@ -48,15 +60,14 @@ body {
       display: block;
     }
   }
-  &__logo-text {
-    padding-left: 20px;
-  }
+  //&__logo-text{padding-left: 20px;}
 
   &__burger {
     display: none;
   }
 
   &__menu {
+    align-items: center;
   }
   &__menu-list {
     display: flex;
@@ -64,23 +75,47 @@ body {
     z-index: 2;
     & li {
       list-style: none;
+      position: relative;
+      margin: 0px 20px 0px 0px;
+
+      &::after {
+        content: '';
+        width: 0;
+        height: 2px;
+        background-color: #fff;
+        position: absolute;
+        bottom: -7px;
+        left: 0;
+        transition: 0.5s;
+      }
+      &:hover {
+        &::after {
+          width: 100%;
+        }
+      }
     }
   }
   &__menu-link {
     text-decoration: none;
     text-transform: uppercase;
-    margin-left: 20px;
+    font-weight: 700;
+    //border: 2px solid transparent;
+    border-radius: 20px;
   }
 
   @media (max-width: 767px) {
-    body.lock {
-      overflow: hidden;
-    }
     &__body {
-      height: 50px;
+      height: 60px;
     }
     &__logo-avatar {
-      flex: 0 0 40px;
+      flex: 0 0 100%;
+      overflow: hidden;
+      position: relative;
+      z-index: 3;
+      & img {
+        max-width: 100%;
+        display: block;
+      }
     }
     &__burger {
       display: block;
@@ -129,8 +164,9 @@ body {
       position: fixed;
       width: 100%;
       height: 100%;
-      top: -110%;
+      top: -150%;
       left: 0;
+      background-color: rgba(0, 0, 0, 0.3);
       padding: 70px 10px 20px 10px;
       transition: all 0.3s ease 0s;
       overflow: auto;
@@ -142,55 +178,122 @@ body {
 
     &__menu-list {
       display: block;
-      margin: 0px 0px 20px 0px;
+      margin: 0px 0px 18px 0px;
     }
     &__menu-link {
       margin-left: 0px;
       font-style: 24px;
     }
   }
-}
-.main {
-}
-.form-box {
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}
-.form-box img {
-  position: absolute;
-  max-width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-}
-.box1 {
-}
-.box2 {
-}
-.box3 {
-}
-.box4 {
-}
+  // .header__social
 
-.conteiner {
+  &__social {
+    &__menu-list {
+      display: flex;
+      position: relative;
+      z-index: 2;
+      & li {
+        list-style: none;
+      }
+    }
+
+    // .social__menu-link
+
+    &__menu-link {
+      margin-left: 18px;
+    }
+  }
 }
-.story {
+.social {
+  // .social__menu-list
+}
+.intro {
   &__content {
   }
 
-  &__content-title {
+  &__image {
+    position: relative;
+    height: 100vh;
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
   }
 
-  &__content-block {
+  &__text {
+    position: absolute;
+    left: 30px;
+    bottom: 20%;
+  }
+}
+.conteiner {
+}
+.image {
+}
+.title {
+  &__content {
+    max-width: 1440px;
+  }
+}
+.about {
+  &__content {
     display: flex;
   }
 
-  &__content-text {
+  &__image {
+    flex: 0 0 66%;
+    position: relative;
+    padding-top: 40%;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 
-  &__content-image {
+  &__text {
+    flex: 1 1 auto;
   }
+}
+.conteiner {
+}
+.image {
+}
+.text {
+}
+.production {
+  &__content {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  &__image {
+    flex: 0 0 66%;
+    position: relative;
+    padding-top: 40%;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+    flex: 1 1 auto;
+  }
+}
+.container {
+}
+.content {
+}
+.footer {
 }
