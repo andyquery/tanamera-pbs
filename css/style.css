@@ -208,7 +208,7 @@ body {
   }
 }
 
-.header__social__menu-list {
+.social__menu-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -216,11 +216,11 @@ body {
   z-index: 2;
 }
 
-.header__social__menu-list li {
+.social__menu-list li {
   list-style: none;
 }
 
-.header__social__menu-link {
+.social__menu-link {
   margin-left: 18px;
 }
 

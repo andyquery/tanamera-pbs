@@ -188,24 +188,25 @@ body {
   // .header__social
 
   &__social {
-    &__menu-list {
-      display: flex;
-      position: relative;
-      z-index: 2;
-      & li {
-        list-style: none;
-      }
-    }
-
-    // .social__menu-link
-
-    &__menu-link {
-      margin-left: 18px;
-    }
   }
 }
 .social {
   // .social__menu-list
+
+  &__menu-list {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    & li {
+      list-style: none;
+    }
+  }
+
+  // .social__menu-link
+
+  &__menu-link {
+    margin-left: 18px;
+  }
 }
 .intro {
   &__content {
